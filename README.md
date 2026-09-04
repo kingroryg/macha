@@ -8,8 +8,6 @@
   <a href="https://skills.sh/kingroryg/macha"><img src="https://skills.sh/b/kingroryg/macha" alt="Macha on Skills.sh"></a>
 </p>
 
-> Why use many tokens when few Macha words do trick? Same brain, less token drama.
-
 An opt-in response style for AI coding assistants: compact, natural, Tamil-influenced South Indian English. Macha shortens the assistant's replies—not your prompts, files, code, commands, or tool output.
 
 ## Install
@@ -33,9 +31,7 @@ gemini extensions install https://github.com/kingroryg/macha
 
 ## Use
 
-Say `/macha`, `$macha`, `macha mode`, or `respond in Macha`. It stays active for the session.
-
-Say `/macha off`, `stop macha`, or `normal mode` to stop. Merely discussing Macha—or asking for brevity—does not activate it.
+Say `macha mode` to turn it on. Say `normal mode` to turn it off.
 
 ## How it sounds
 
@@ -92,7 +88,3 @@ python3 /path/to/skill-creator/scripts/quick_validate.py skills/macha
 ```
 
 `skills/macha/SKILL.md` is the single source of behavior.
-
-## License
-
-[MIT](LICENSE) © 2026 Sarthak Munshi
