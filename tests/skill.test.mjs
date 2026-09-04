@@ -135,8 +135,8 @@ test("README and Codex metadata use the packaged logo", () => {
   assert.ok(existsSync(logo));
   assert.deepEqual([...readFileSync(logo).subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
   assert.match(readme, /skills\/macha\/assets\/macha-logo\.png/);
-  assert.match(readme, /https:\/\/img\.shields\.io\/badge\/dynamic\/json/);
-  assert.match(readme, /skills\.sh%2Fapi%2Fsearch%3Fq%3Dkingroryg%252Fmacha/);
+  assert.match(readme, /https:\/\/img\.shields\.io\/badge\/skills\.sh-macha-black/);
+  assert.doesNotMatch(readme, /badge\/dynamic\/json|skills\.sh%2Fapi%2Fsearch|installs/);
   assert.match(readme, /https:\/\/skills\.sh\/kingroryg\/macha\/macha/);
   assert.match(openai, /icon_small: "\.\/assets\/macha-logo\.png"/);
   assert.match(openai, /icon_large: "\.\/assets\/macha-logo\.png"/);

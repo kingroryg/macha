@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://skills.sh/kingroryg/macha/macha"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fskills.sh%2Fapi%2Fsearch%3Fq%3Dkingroryg%252Fmacha&amp;query=%24.skills%5B0%5D.installs&amp;label=skills.sh%20installs&amp;color=black" alt="Macha installs on Skills.sh"></a>
+  <a href="https://skills.sh/kingroryg/macha/macha"><img src="https://img.shields.io/badge/skills.sh-macha-black" alt="Macha on Skills.sh"></a>
 </p>
 
 An opt-in response style for AI coding assistants: compact, natural, Tamil-influenced South Indian English. Macha shortens the assistant's replies—not your prompts, files, code, commands, or tool output.
