@@ -1,8 +1,0 @@
-interface:
-  display_name: "Machan"
-  short_description: "Compact Tamil-influenced assistant replies"
-  icon_small: "./assets/machan-logo.png"
-  icon_large: "./assets/machan-logo.png"
-  default_prompt: "Use $machan to answer with fewer words while preserving every important technical detail."
-policy:
-  allow_implicit_invocation: false

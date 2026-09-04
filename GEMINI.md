@@ -1,1 +1,1 @@
-@./skills/machan/SKILL.md
+@./skills/macha/SKILL.md

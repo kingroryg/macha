@@ -1,9 +1,10 @@
 {
-  "name": "machan-skill",
+  "name": "macha-skill",
   "version": "1.0.0",
   "private": true,
-  "description": "Cross-assistant Machan communication skill.",
+  "description": "Cross-assistant Macha communication skill.",
   "scripts": {
+    "benchmark": "python3 scripts/benchmark_tokens.py",
     "test": "node --test tests/*.test.mjs"
   },
   "engines": {

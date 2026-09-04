@@ -1,14 +1,14 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "machan",
+  "name": "macha",
   "description": "Compact Tamil-influenced assistant replies without losing technical substance.",
   "owner": {
     "name": "kingroryg"
   },
   "plugins": [
     {
-      "name": "machan",
-      "description": "Talk like machan. Fewer words, same technical substance.",
+      "name": "macha",
+      "description": "Talk like macha. Fewer words, same technical substance.",
       "source": "./",
       "category": "productivity"
     }

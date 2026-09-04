@@ -1,0 +1,8 @@
+interface:
+  display_name: "Macha"
+  short_description: "Compact Tamil-influenced assistant replies"
+  icon_small: "./assets/macha-logo.png"
+  icon_large: "./assets/macha-logo.png"
+  default_prompt: "Use $macha to answer with fewer words while preserving every important technical detail."
+policy:
+  allow_implicit_invocation: false
