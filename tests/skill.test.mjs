@@ -16,13 +16,16 @@ test("package ships under the MIT license", () => {
 
 test("canonical skill has valid identity and discriminating trigger", () => {
   assert.match(skill, /^---\nname: macha\n/);
-  assert.match(skill, /Use only when explicitly\s+activated/);
-  assert.match(skill, /brevity requests and discussion do not count/);
+  assert.match(skill, /entire message is \/macha on/);
+  assert.match(skill, /Quoted commands, discussion, and brevity requests do not count/);
 });
 
 test("skill defines one mode and an off switch", () => {
   assert.match(skill, /Write new replies in compact/);
-  assert.match(skill, /`\/macha off`/);
+  assert.match(skill, /standalone message `\/macha on` activates/);
+  assert.match(skill, /`\/macha off` deactivates/);
+  assert.match(skill, /Reply `Seri\.` to on and `Okay\.` to off/);
+  assert.doesNotMatch(skill, /macha mode|normal mode|respond in Macha|stop macha/);
   assert.doesNotMatch(skill, /\b(?:lite|full|ultra)\b/i);
 });
 
@@ -78,10 +81,10 @@ test("approved vocabulary and high-context rewrites are present", () => {
 });
 
 test("skill is an activated response style, not an input rewriter", () => {
-  assert.match(skill, /Activate only for/);
+  assert.match(skill, /Only the standalone message `\/macha on` activates Macha/);
   assert.match(skill, /Write new replies/);
   assert.match(skill, /Never rewrite input/);
-  assert.match(skill, /Do not announce it or duplicate a normal answer/);
+  assert.match(skill, /do not add a second answer/);
   assert.doesNotMatch(skill, /No scene\./);
   assert.doesNotMatch(skill, /\bSemma\b/);
 });
@@ -132,16 +135,18 @@ test("README and Codex metadata use the packaged logo", () => {
   assert.ok(existsSync(logo));
   assert.deepEqual([...readFileSync(logo).subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
   assert.match(readme, /skills\/macha\/assets\/macha-logo\.png/);
-  assert.match(readme, /https:\/\/skills\.sh\/b\/kingroryg\/macha/);
+  assert.match(readme, /https:\/\/shieldcn\.dev\/skills\/kingroryg\/macha\/macha\.svg/);
+  assert.match(readme, /https:\/\/skills\.sh\/kingroryg\/macha\/macha/);
   assert.match(openai, /icon_small: "\.\/assets\/macha-logo\.png"/);
   assert.match(openai, /icon_large: "\.\/assets\/macha-logo\.png"/);
-  assert.match(openai, /allow_implicit_invocation: false/);
+  assert.match(openai, /allow_implicit_invocation: true/);
   const legacySkillPath = new URL(`../skills/${"ma" + "chan"}`, import.meta.url);
   assert.equal(existsSync(legacySkillPath), false);
 });
 
 test("README presents every approved phrase as assistant output", () => {
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  assert.match(readme, /Send `\/macha on` to turn it on\. Send `\/macha off` to turn it off\./);
   for (const phrase of [
     "What'll you do?", "Why like this?", "Now what?", "What to do?", "Check this?",
     "Thoughts?", "Done ah?", "Same bug, no?", "You want patch?", "Tests passed?",
@@ -183,5 +188,5 @@ test("token benchmark is reproducible and documented without overclaiming", () =
   assert.match(readme, /skills\/macha\/assets\/token-savings\.png/);
   assert.match(readme, /not a live-model A\/B evaluation/);
   assert.match(readme, /skill-loading cost/);
-  assert.match(readme, /987–999 tokens/);
+  assert.match(readme, /983–996 tokens/);
 });

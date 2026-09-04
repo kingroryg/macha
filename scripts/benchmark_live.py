@@ -38,7 +38,7 @@ def arm_prompt(arm: str, task: str, skill: str) -> str:
         return task
     if arm == "terse":
         return f"Answer concisely while preserving every technical detail.\n\n{task}"
-    return f"Follow this response-style skill:\n\n{skill}\n\n/macha\n\n{task}"
+    return f"Follow this response-style skill:\n\n{skill}\n\n/macha on\n\n{task}"
 
 
 def token_counts(text: str) -> dict[str, int]:

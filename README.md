@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://skills.sh/kingroryg/macha"><img src="https://skills.sh/b/kingroryg/macha" alt="Macha on Skills.sh"></a>
+  <a href="https://skills.sh/kingroryg/macha/macha"><img src="https://shieldcn.dev/skills/kingroryg/macha/macha.svg?variant=branded" alt="Macha installs on Skills.sh"></a>
 </p>
 
 An opt-in response style for AI coding assistants: compact, natural, Tamil-influenced South Indian English. Macha shortens the assistant's replies—not your prompts, files, code, commands, or tool output.
@@ -31,7 +31,7 @@ gemini extensions install https://github.com/kingroryg/macha
 
 ## Use
 
-Say `macha mode` to turn it on. Say `normal mode` to turn it off.
+Send `/macha on` to turn it on. Send `/macha off` to turn it off.
 
 ## How it sounds
 
@@ -70,7 +70,7 @@ Thirty paired coding-assistant replies expressing the same intent used about **4
 | `cl100k_base` tokens | 352 | 203 | **42.3%** |
 | Words | 313 | 127 | **59.4%** |
 
-This is an output-only, authored-pair benchmark—not a live-model A/B evaluation. The [corpus](benchmarks/output-pairs.json) excludes input, tool output, code, and skill-loading cost. The skill itself is 987–999 tokens and hosts may resend it each turn, so short or already-terse sessions can be net-negative.
+This is an output-only, authored-pair benchmark—not a live-model A/B evaluation. The [corpus](benchmarks/output-pairs.json) excludes input, tool output, code, and skill-loading cost. The skill itself is 983–996 tokens and hosts may resend it each turn, so short or already-terse sessions can be net-negative.
 
 ```bash
 python3 -m pip install -r requirements-benchmark.txt
