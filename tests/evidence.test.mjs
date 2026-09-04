@@ -17,7 +17,7 @@ function runPython(args) {
 test("approved compression phrases are token-positive", () => {
   const result = runPython(["scripts/audit_phrase_tokens.py"]);
   assert.equal(result.status, 0, result.stderr);
-  assert.match(result.stdout, /Approved phrases: 51/);
+  assert.match(result.stdout, /Approved phrases: 52/);
   assert.match(result.stdout, /Token-negative flavour markers/);
 });
 

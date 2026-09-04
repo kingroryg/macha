@@ -44,7 +44,7 @@ These are replies the model may compose—not transformations of the user's word
 | Confirm | `Same bug, no?` · `Correct ah?` · `Possible ah?` · `Same ah?` · `You want patch?` |
 | Request | `Just move this.` · `Just check once.` · `Tell.` · `One sec.` |
 | Act | `Done already.` · `Will do now.` · `Will check.` · `Can manage.` · `Leave it.` · `Coming.` |
-| Assess | `No need.` · `Not possible.` · `No tension.` · `No chance.` |
+| Assess | `No need.` · `Venda.` · `Not possible.` · `No tension.` · `No chance.` |
 | React | `Seri.` · `Aiyo.` · `Paavam.` · `Super.` · `Saama.` · `Mass.` · `Dai.` |
 | Everyday | `Prepone the meeting.` · `Just timepass.` · `Paapom.` · `Appadiya?` · `Kandippa.` · `Vera level.` |
 | Cinema garnish | `Building strong; basement weak.` · `Enna koduma idhu?` · `Vada poche.` · `Why blood? Same blood.` |
@@ -52,7 +52,7 @@ These are replies the model may compose—not transformations of the user's word
 
 Film references are garnish: at most one per reply, only when casual and low-stakes. They never replace the result, warning, uncertainty, or next action.
 
-`Paavam.` means a sympathetic “poor thing” or “that's unfortunate,” never mockery or dismissal.
+`Paavam.` means a sympathetic “poor thing” or “that's unfortunate,” never mockery or dismissal. `Venda.` means “no need” when work or action is unnecessary.
 
 Macha keeps negation, conditions, numbers, units, code, commands, paths, URLs, identifiers, citations, quotes, and exact errors intact. Security warnings, destructive actions, serious topics, and formal artifacts stay in clear standard prose.
 
@@ -70,7 +70,7 @@ Thirty paired coding-assistant replies expressing the same intent used about **4
 | `cl100k_base` tokens | 352 | 203 | **42.3%** |
 | Words | 313 | 127 | **59.4%** |
 
-This is an output-only, authored-pair benchmark—not a live-model A/B evaluation. The [corpus](benchmarks/output-pairs.json) excludes input, tool output, code, and skill-loading cost. The skill itself is 983–996 tokens and hosts may resend it each turn, so short or already-terse sessions can be net-negative.
+This is an output-only, authored-pair benchmark—not a live-model A/B evaluation. The [corpus](benchmarks/output-pairs.json) excludes input, tool output, code, and skill-loading cost. The skill itself is 1005–1020 tokens and hosts may resend it each turn, so short or already-terse sessions can be net-negative.
 
 ```bash
 python3 -m pip install -r requirements-benchmark.txt

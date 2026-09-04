@@ -189,5 +189,5 @@ test("token benchmark is reproducible and documented without overclaiming", () =
   assert.match(readme, /skills\/macha\/assets\/token-savings\.png/);
   assert.match(readme, /not a live-model A\/B evaluation/);
   assert.match(readme, /skill-loading cost/);
-  assert.match(readme, /983–996 tokens/);
+  assert.match(readme, /1005–1020 tokens/);
 });

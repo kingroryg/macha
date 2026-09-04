@@ -26,6 +26,7 @@
   {"phrase":"Leave it.","plain":"Leave it unchanged.","role":"compression"},
   {"phrase":"Coming.","plain":"I am coming now.","role":"compression"},
   {"phrase":"No need.","plain":"That is not necessary.","role":"compression"},
+  {"phrase":"Venda.","plain":"No need.","role":"flavour"},
   {"phrase":"Not possible.","plain":"That is not possible.","role":"compression"},
   {"phrase":"No tension.","plain":"There is nothing to worry about.","role":"compression"},
   {"phrase":"No chance.","plain":"There is no possibility of that.","role":"compression"},

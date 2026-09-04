@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "corpus_sha256": "94385ad048f644ca21b4a1823ed2139a6c32af485c4238706c74063058abbee5",
-  "skill_sha256": "d24b8905d93d87c0f53d6a90b093c3eb257898b34b3a90d3e6d28b554f3cfce0",
+  "skill_sha256": "aa8bd4bc24affafc65114adbeb116bfd950e2a7cd9592c40cf43f353d8090126",
   "chart_sha256": "f9cbbd73c3e09ff28dd31e8ccef95139f4ec167d10c64613a58f370678b32ad0",
   "stats": {
-    "o200k_base": {"normal": 351, "macha": 201, "skill": 983},
-    "cl100k_base": {"normal": 352, "macha": 203, "skill": 996}
+    "o200k_base": {"normal": 351, "macha": 201, "skill": 1005},
+    "cl100k_base": {"normal": 352, "macha": 203, "skill": 1020}
   }
 }
