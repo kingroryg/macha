@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-09-04",
+  "method": "Copied the local skill into an isolated temporary project with the Agent Skills CLI.",
+  "skills_cli": "1.5.23",
+  "profiles": ["codex", "claude-code", "gemini-cli", "cursor"],
+  "installed_cli_versions": {
+    "codex": "0.145.0",
+    "claude-code": "2.1.229",
+    "gemini-cli": "0.22.5"
+  },
+  "install_result": "pass",
+  "behavior_result": "not tested"
+}

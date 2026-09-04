@@ -11,6 +11,7 @@ import tiktoken
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES_PATH = ROOT / "benchmarks" / "output-pairs.json"
+SKILL_PATH = ROOT / "skills" / "macha" / "SKILL.md"
 ENCODINGS = ("o200k_base", "cl100k_base")
 
 
@@ -31,15 +32,24 @@ def main() -> None:
     print("| Measure | Normal | Macha | Reduction |")
     print("|---|---:|---:|---:|")
 
+    context_rows = []
     for name in ENCODINGS:
         encoding = tiktoken.get_encoding(name)
         normal = sum(len(encoding.encode(case["normal_output"])) for case in cases)
         macha = sum(len(encoding.encode(case["macha_output"])) for case in cases)
+        skill = len(encoding.encode(SKILL_PATH.read_text(encoding="utf-8")))
+        context_rows.append((name, skill, normal - macha, skill - (normal - macha)))
         print(f"| `{name}` tokens | {normal} | {macha} | {reduction(normal, macha):.1f}% |")
 
     normal_words = sum(len(case["normal_output"].split()) for case in cases)
     macha_words = sum(len(case["macha_output"].split()) for case in cases)
     print(f"| Whitespace-delimited words | {normal_words} | {macha_words} | {reduction(normal_words, macha_words):.1f}% |")
+
+    print("\n| Encoding | Skill input | Output saved | Net with one loaded skill copy |")
+    print("|---|---:|---:|---:|")
+    for name, skill, saved, net in context_rows:
+        print(f"| `{name}` | {skill} | {saved} | {net:+d} |")
+    print("\nOutput reduction is not net context or billing reduction; hosts may resend or cache skill input differently.")
 
 
 if __name__ == "__main__":

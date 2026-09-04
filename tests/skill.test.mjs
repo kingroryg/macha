@@ -5,14 +5,23 @@ import test from "node:test";
 const skillPath = new URL("../skills/macha/SKILL.md", import.meta.url);
 const skill = readFileSync(skillPath, "utf8");
 
+test("package ships under the MIT license", () => {
+  const license = readFileSync(new URL("../LICENSE", import.meta.url), "utf8");
+  const packageJson = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
+
+  assert.match(license, /^MIT License/);
+  assert.match(license, /Copyright \(c\) 2026 Sarthak Munshi/);
+  assert.equal(packageJson.license, "MIT");
+});
+
 test("canonical skill has valid identity and discriminating trigger", () => {
   assert.match(skill, /^---\nname: macha\n/);
-  assert.match(skill, /Use only when the user explicitly activates/);
-  assert.match(skill, /Generic requests for brevity do not activate it/);
+  assert.match(skill, /Use only when explicitly\s+activated/);
+  assert.match(skill, /brevity requests and discussion do not count/);
 });
 
 test("skill defines one mode and an off switch", () => {
-  assert.match(skill, /When active, compose each new assistant reply directly in compact/);
+  assert.match(skill, /Write new replies in compact/);
   assert.match(skill, /`\/macha off`/);
   assert.doesNotMatch(skill, /\b(?:lite|full|ultra)\b/i);
 });
@@ -43,6 +52,7 @@ test("approved vocabulary and high-context rewrites are present", () => {
     "One sec.",
     "Seri.",
     "Aiyo.",
+    "Paavam.",
     "Super.",
     "Saama.",
     "Prepone the meeting.",
@@ -68,22 +78,21 @@ test("approved vocabulary and high-context rewrites are present", () => {
 });
 
 test("skill is an activated response style, not an input rewriter", () => {
-  assert.match(skill, /Remain inactive until the user explicitly says/);
-  assert.match(skill, /compose each new assistant reply directly/);
-  assert.match(skill, /not a rewriting operation/);
-  assert.match(skill, /Never transform user input/);
-  assert.match(skill, /style only new assistant replies/);
+  assert.match(skill, /Activate only for/);
+  assert.match(skill, /Write new replies/);
+  assert.match(skill, /Never rewrite input/);
+  assert.match(skill, /Do not announce it or duplicate a normal answer/);
   assert.doesNotMatch(skill, /No scene\./);
   assert.doesNotMatch(skill, /\bSemma\b/);
 });
 
 test("precision boundaries protect technical and sensitive content", () => {
   for (const requirement of [
-    "Never lose negation",
+    "Preserve negation",
     "exact errors unchanged",
-    "security warnings",
+    "security",
     "destructive actions",
-    "formal artifacts",
+    "Persisted artifacts",
     "accent caricature",
   ]) {
     assert.ok(skill.includes(requirement), `missing boundary: ${requirement}`);
@@ -91,11 +100,10 @@ test("precision boundaries protect technical and sensitive content", () => {
 });
 
 test("pop-culture responses stay sparse, low-stakes, and informative", () => {
-  assert.match(skill, /at most one film reference per reply/);
-  assert.match(skill, /only in casual, low-stakes conversation/);
-  assert.match(skill, /Never let it replace a concrete result, warning, uncertainty, or next action/);
-  assert.match(skill, /Paapom.*immediate inspection or testing/);
-  assert.match(skill, /Kandippa.*commitments the assistant can fulfill/);
+  assert.match(skill, /Film references: casual, low-stakes, max one, never instead of substance/);
+  assert.match(skill, /Paapom.*immediate work/);
+  assert.match(skill, /Kandippa.*achievable work/);
+  assert.match(skill, /One approved flavour marker.*max one per short reply/);
 });
 
 test("assistant manifests point to the canonical skill", () => {
@@ -141,7 +149,7 @@ test("README presents every approved phrase as assistant output", () => {
     "Possible ah?", "Same ah?", "Just move this.", "Just check once.", "Done already.",
     "Will do now.", "Will check.", "Can manage.", "No tension.", "No chance.",
     "Leave it.", "Coming.", "Tell.", "One sec.", "No need.", "Not possible.",
-    "Seri.", "Aiyo.", "Super.", "Saama.", "Dai.", "Prepone the meeting.",
+    "Seri.", "Aiyo.", "Paavam.", "Super.", "Saama.", "Dai.", "Prepone the meeting.",
     "Just timepass.", "Mass.", "Paapom.", "Appadiya?", "Kandippa.",
     "Vera level.", "Building strong; basement weak.", "Enna koduma idhu?",
     "Vada poche.", "Why blood? Same blood.", "Aaniye pudunga vendam.",
@@ -157,6 +165,7 @@ test("README presents every approved phrase as assistant output", () => {
 test("token benchmark is reproducible and documented without overclaiming", () => {
   const cases = JSON.parse(readFileSync(new URL("../benchmarks/output-pairs.json", import.meta.url), "utf8"));
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  const chart = new URL("../skills/macha/assets/token-savings.png", import.meta.url);
   const ids = new Set(cases.map(({ id }) => id));
 
   assert.equal(cases.length, 30);
@@ -169,6 +178,10 @@ test("token benchmark is reproducible and documented without overclaiming", () =
 
   assert.match(readme, /42\.7%/);
   assert.match(readme, /42\.3%/);
+  assert.ok(existsSync(chart));
+  assert.deepEqual([...readFileSync(chart).subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
+  assert.match(readme, /skills\/macha\/assets\/token-savings\.png/);
   assert.match(readme, /not a live-model A\/B evaluation/);
-  assert.match(readme, /one-time cost of loading the skill/);
+  assert.match(readme, /skill-loading cost/);
+  assert.match(readme, /987–999 tokens/);
 });

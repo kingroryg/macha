@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "prompts": [
+    {
+      "id": "strict-equality",
+      "category": "debugging",
+      "prompt": "Explain why JavaScript `0 == false` is true and give the safer comparison.",
+      "must_include": ["strict equality"],
+      "must_preserve": ["==="]
+    },
+    {
+      "id": "sql-injection",
+      "category": "security",
+      "prompt": "Review an endpoint that concatenates `req.params.id` into a SQL query. Explain the risk and fix.",
+      "must_include": ["parameterized"]
+    },
+    {
+      "id": "git-revert",
+      "category": "git",
+      "prompt": "Give the non-history-rewriting command that reverses the latest Git commit.",
+      "must_include": ["revert"],
+      "must_preserve": ["git revert HEAD"]
+    },
+    {
+      "id": "react-reference",
+      "category": "debugging",
+      "prompt": "A React child re-renders because its parent creates a new object prop each render. Explain one appropriate fix.",
+      "must_include": ["memo"],
+      "must_preserve": ["useMemo"]
+    },
+    {
+      "id": "postgres-counter",
+      "category": "database",
+      "prompt": "Fix a PostgreSQL counter update that loses increments during concurrent requests. Include the atomic SQL pattern.",
+      "must_include": ["UPDATE", "RETURNING"]
+    },
+    {
+      "id": "docker-healthcheck",
+      "category": "devops",
+      "prompt": "Show how a Dockerfile can declare a container health check.",
+      "must_include": [],
+      "must_preserve": ["HEALTHCHECK"]
+    },
+    {
+      "id": "exact-error",
+      "category": "diagnosis",
+      "prompt": "Explain this startup failure without changing the error text: `ECONNREFUSED 127.0.0.1:5432`.",
+      "must_include": ["connection"],
+      "must_preserve": ["ECONNREFUSED 127.0.0.1:5432"]
+    },
+    {
+      "id": "api-versioning",
+      "category": "architecture",
+      "prompt": "Explain what version change a breaking public API change normally requires under semantic versioning.",
+      "must_include": ["major"]
+    },
+    {
+      "id": "retry-modality",
+      "category": "interaction",
+      "prompt": "Ask the user for permission before retrying a failed production deployment.",
+      "must_include": [],
+      "must_preserve": ["Should I retry"]
+    },
+    {
+      "id": "destructive-warning",
+      "category": "safety",
+      "prompt": "Warn clearly that `DROP TABLE users;` permanently deletes the table. Preserve the SQL exactly.",
+      "must_include": ["permanent"],
+      "must_preserve": ["DROP TABLE users;"]
+    },
+    {
+      "id": "persisted-pr",
+      "category": "artifact",
+      "prompt": "Draft a concise professional pull-request description with Summary and Testing headings for a parameterized-query security fix.",
+      "must_include": ["parameterized"],
+      "must_preserve": ["Summary", "Testing"]
+    },
+    {
+      "id": "ambiguous-delete",
+      "category": "clarification",
+      "prompt": "The user says only: Delete the old config. Respond safely without assuming which file they mean.",
+      "must_include": ["path"]
+    }
+  ]
+}

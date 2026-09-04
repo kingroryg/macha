@@ -1,4 +1,4 @@
-# macha
+# Macha
 
 <p align="center">
   <img src="skills/macha/assets/macha-logo.png" alt="Macha: a developer holding filter coffee beside a laptop" width="420">
@@ -8,77 +8,19 @@
   <a href="https://skills.sh/kingroryg/macha"><img src="https://skills.sh/b/kingroryg/macha" alt="Macha on Skills.sh"></a>
 </p>
 
-Fewer words. Same brain. Tamil-influenced South Indian English for AI coding assistants.
+> Why use many tokens when few Macha words do trick? Same brain, less token drama.
 
-Code, commands, paths, exact errors, numbers, and important qualifications stay intact. Only surrounding prose shrinks.
+An opt-in response style for AI coding assistants: compact, natural, Tamil-influenced South Indian English. Macha shortens the assistant's replies—not your prompts, files, code, commands, or tool output.
 
-Macha is an opt-in response style. It stays inactive until explicitly activated; then the model composes new replies in Macha speak. It does not transform the user's prompt.
+## Install
 
-## Approved response examples
-
-These are replies the model may compose while Macha is active—not transformations of the user's words.
-
-| Assistant's intent | Macha reply |
-|---|---|
-| Ask what the user will do | `What'll you do?` |
-| Question the approach | `Why like this?` |
-| Ask what happens next | `Now what?` |
-| Express resignation | `What to do?` |
-| Request a check | `Check this?` |
-| Invite an opinion | `Thoughts?` |
-| Ask whether work is complete | `Done ah?` |
-| Confirm it is the same bug | `Same bug, no?` |
-| Offer to make a patch | `You want patch?` |
-| Ask whether tests passed | `Tests passed?` |
-| Ask whether a release is ready | `Release ready ah?` |
-| Check for a regression | `Regression ah?` |
-| Confirm both checks are green | `Both green ah?` |
-| Confirm correctness, possibility, or sameness | `Correct ah?` / `Possible ah?` / `Same ah?` |
-| Make a low-stakes request | `Just move this.` / `Just check once.` |
-| Report completed or immediate work | `Done already.` / `Will do now.` |
-| Promise a check | `Will check.` |
-| Say the task is manageable | `Can manage.` |
-| Reassure | `No tension.` |
-| Reject a possibility | `No chance.` |
-| Recommend dropping something | `Leave it.` |
-| Say the assistant is joining or arriving | `Coming.` |
-| Invite the user to speak | `Tell.` |
-| Ask for a moment | `One sec.` |
-| Say something is unnecessary or impossible | `No need.` / `Not possible.` |
-| Acknowledge | `Seri.` |
-| React with distress, approval, or strong praise | `Aiyo.` / `Super.` / `Saama.` |
-| Give a playful rebuke after casual rapport | `Dai.` |
-| Move an event earlier | `Prepone the meeting.` |
-| Describe casual, purposeless activity | `Just timepass.` |
-| Give strong approval | `Mass.` |
-| Start inspecting or testing now | `Paapom.` |
-| React with genuine surprise | `Appadiya?` |
-| Agree confidently | `Kandippa.` |
-| Give exceptional praise | `Vera level.` |
-| Flag good surface with weak foundations | `Building strong; basement weak.` |
-| React to an absurd low-stakes failure | `Enna koduma idhu?` |
-| Mark a lost chance or failed plan | `Vada poche.` |
-| Joke about the same failure recurring | `Why blood? Same blood.` |
-| Reject unnecessary work or scope | `Aaniye pudunga vendam.` |
-| Say deliberate planning is needed | `Plan panni pannanum.` |
-| Give skeptical acknowledgment | `Aahaan.` |
-| Give pleased acknowledgment | `Magizhchi.` |
-
-`Should I retry?` stays intact because `Retry ah?` loses actor and modality. `Prepone` applies to calendar time, not priority. `Timepass` is only for casual entertainment or low-value activity, not technical conclusions.
-
-Film references are sparse garnish: at most one per reply, only in casual, low-stakes conversation. They never replace the actual result, warning, uncertainty, or next action. `Paapom.` is followed by immediate inspection or testing; `Kandippa.` is reserved for commitments the assistant can fulfill.
-
-## Install everywhere
-
-Install globally for every assistant supported by the Agent Skills CLI:
+Every Agent Skills-compatible assistant:
 
 ```bash
 npx skills add kingroryg/macha --skill macha --agent '*' --global --yes
 ```
 
-This covers major Agent Skills-compatible assistants, including Codex, Claude Code, Cursor, Windsurf, Cline, GitHub Copilot, OpenCode, Roo Code, Kilo Code, Continue, Aider integrations, and Qwen Code. The installer skips profiles it does not recognize.
-
-Native alternatives:
+Native installers:
 
 ```bash
 # Claude Code
@@ -91,34 +33,56 @@ gemini extensions install https://github.com/kingroryg/macha
 
 ## Use
 
-Say `/macha`, `$macha`, `macha mode`, or `respond in Macha` to activate it. The single mode lasts for the session. Merely discussing Macha or asking for a brief answer does not activate it.
+Say `/macha`, `$macha`, `macha mode`, or `respond in Macha`. It stays active for the session.
 
-Say `/macha off`, `stop macha`, or `normal mode` to stop.
+Say `/macha off`, `stop macha`, or `normal mode` to stop. Merely discussing Macha—or asking for brevity—does not activate it.
 
-When inactive, the assistant responds normally.
+## How it sounds
+
+These are replies the model may compose—not transformations of the user's words.
+
+| Intent | Possible Macha replies |
+|---|---|
+| Ask | `What'll you do?` · `Why like this?` · `Now what?` · `What to do?` · `Check this?` · `Thoughts?` |
+| Check | `Done ah?` · `Tests passed?` · `Release ready ah?` · `Regression ah?` · `Both green ah?` |
+| Confirm | `Same bug, no?` · `Correct ah?` · `Possible ah?` · `Same ah?` · `You want patch?` |
+| Request | `Just move this.` · `Just check once.` · `Tell.` · `One sec.` |
+| Act | `Done already.` · `Will do now.` · `Will check.` · `Can manage.` · `Leave it.` · `Coming.` |
+| Assess | `No need.` · `Not possible.` · `No tension.` · `No chance.` |
+| React | `Seri.` · `Aiyo.` · `Paavam.` · `Super.` · `Saama.` · `Mass.` · `Dai.` |
+| Everyday | `Prepone the meeting.` · `Just timepass.` · `Paapom.` · `Appadiya?` · `Kandippa.` · `Vera level.` |
+| Cinema garnish | `Building strong; basement weak.` · `Enna koduma idhu?` · `Vada poche.` · `Why blood? Same blood.` |
+| More cinema | `Aaniye pudunga vendam.` · `Plan panni pannanum.` · `Aahaan.` · `Magizhchi.` |
+
+Film references are garnish: at most one per reply, only when casual and low-stakes. They never replace the result, warning, uncertainty, or next action.
+
+`Paavam.` means a sympathetic “poor thing” or “that's unfortunate,” never mockery or dismissal.
+
+Macha keeps negation, conditions, numbers, units, code, commands, paths, URLs, identifiers, citations, quotes, and exact errors intact. Security warnings, destructive actions, serious topics, and formal artifacts stay in clear standard prose.
 
 ## Stats
 
-On a fixed benchmark of 30 paired coding-assistant responses expressing the same intent, Macha used about **42% fewer output tokens**:
+Thirty paired coding-assistant replies expressing the same intent used about **42% fewer output tokens** in Macha:
+
+<p align="center">
+  <img src="skills/macha/assets/token-savings.png" alt="Hand-drawn chart showing Macha uses about 42% fewer output tokens than normal assistant replies" width="760">
+</p>
 
 | Measure | Normal | Macha | Reduction |
 |---|---:|---:|---:|
 | `o200k_base` tokens | 351 | 201 | **42.7%** |
 | `cl100k_base` tokens | 352 | 203 | **42.3%** |
-| Whitespace-delimited words | 313 | 127 | **59.4%** |
+| Words | 313 | 127 | **59.4%** |
 
-The [benchmark corpus](benchmarks/output-pairs.json) contains only assistant outputs; user input is not transformed or counted. Each pair preserves the same intended result, constraint, or next action. This deterministic reference test is not a live-model A/B evaluation, and it excludes input tokens, tool output, code blocks, and the one-time cost of loading the skill. Real savings vary by model and task.
-
-Reproduce it:
+This is an output-only, authored-pair benchmark—not a live-model A/B evaluation. The [corpus](benchmarks/output-pairs.json) excludes input, tool output, code, and skill-loading cost. The skill itself is 987–999 tokens and hosts may resend it each turn, so short or already-terse sessions can be net-negative.
 
 ```bash
 python3 -m pip install -r requirements-benchmark.txt
 npm run benchmark
+npm run audit:phrases
 ```
 
-## What it saves
-
-Macha shortens assistant output while active. Those shorter replies also reduce text carried into later conversation turns. It does not transform user input, existing prompts, files, or tool output.
+For the live normal-vs-terse-vs-Macha harness and evidence rules, see [benchmarks](benchmarks/README.md).
 
 ## Development
 
@@ -127,4 +91,8 @@ npm test
 python3 /path/to/skill-creator/scripts/quick_validate.py skills/macha
 ```
 
-`skills/macha/SKILL.md` is the sole source of behavior. Assistant manifests reference or discover that file; do not maintain separate copies of the language rules.
+`skills/macha/SKILL.md` is the single source of behavior.
+
+## License
+
+[MIT](LICENSE) © 2026 Sarthak Munshi

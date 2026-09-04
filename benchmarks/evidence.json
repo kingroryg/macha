@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "corpus_sha256": "94385ad048f644ca21b4a1823ed2139a6c32af485c4238706c74063058abbee5",
+  "skill_sha256": "3fe9ddc9b0a82b64d2e51b64695be7b3f125e0ae4ab5a3c8fca926bb70b3efd9",
+  "chart_sha256": "f9cbbd73c3e09ff28dd31e8ccef95139f4ec167d10c64613a58f370678b32ad0",
+  "stats": {
+    "o200k_base": {"normal": 351, "macha": 201, "skill": 987},
+    "cl100k_base": {"normal": 352, "macha": 203, "skill": 999}
+  }
+}
