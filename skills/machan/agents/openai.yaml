@@ -1,0 +1,4 @@
+interface:
+  display_name: "Machan"
+  short_description: "Compact Tamil-influenced assistant replies"
+  default_prompt: "Use $machan to answer with fewer words while preserving every important technical detail."
